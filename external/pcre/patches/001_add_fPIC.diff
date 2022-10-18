@@ -1,0 +1,12 @@
+diff -uNr pcre-8.45/CMakeLists.txt pcre-8.45_patched/CMakeLists.txt
+--- pcre-8.45/CMakeLists.txt	2021-06-14 11:33:37.000000000 +0200
++++ pcre-8.45_patched/CMakeLists.txt	2022-10-18 17:15:28.308053083 +0200
+@@ -652,6 +652,8 @@
+ 
+ # Build setup
+ 
++ADD_DEFINITIONS(-fPIC)
++
+ ADD_DEFINITIONS(-DHAVE_CONFIG_H)
+ 
+ IF(MSVC)
