@@ -12,19 +12,14 @@ ADD_LIBRARY(TARGET_lrexlib_pcre MODULE
             src/pcre/lpcre_f.c)
 
 TARGET_COMPILE_DEFINITIONS(TARGET_lrexlib_pcre
-                           PRIVATE VERSION="${LREXLIB_VERSION}")
+                           PRIVATE VERSION="${LREXLIB_VERSION}"
+                                   PCRE_STATIC)
 
-# Add the LUA includes and library.
+# Add the includes and library for LUA and PCRE.
 TARGET_INCLUDE_DIRECTORIES(TARGET_lrexlib_pcre
-                           PRIVATE ${LUA_INCLUDE_DIR})
+                           PRIVATE ${LUA_INCLUDE_DIR} ${LIBPCRE_INCLUDE_DIRECTORIES})
 TARGET_LINK_LIBRARIES(TARGET_lrexlib_pcre
-                      PRIVATE ${LUA_LIBRARIES})
-
-# Add the pcre includes and library.
-TARGET_INCLUDE_DIRECTORIES(TARGET_lrexlib_pcre
-                           PRIVATE ${LIBPCRE_INCLUDE_DIRECTORIES})
-TARGET_LINK_LIBRARIES(TARGET_lrexlib_pcre
-                      PRIVATE ${LIBPCRE_LIBRARY})
+                      PRIVATE ${LUA_LIBRARIES} ${LIBPCRE_LIBRARY})
 
 # On MinGW link all compiler libraries static.
 IF((${CMAKE_SYSTEM_NAME} STREQUAL "Windows") AND (${CMAKE_COMPILER_IS_GNUCC}))
