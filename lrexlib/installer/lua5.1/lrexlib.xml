@@ -8,7 +8,7 @@
 	      extension="tar.xz"
 	      platform="@JONCHKI_PLATFORM@">
 		<license name="MIT/X11"/>
-		<author name="The Kepler Project" url="http://matthewwild.co.uk/projects/luaexpat/" />
+		<author name="Reuben Thomas, Shmuel Zeigerman" url="https://github.com/rrthomas/lrexlib" />
 		<description>
 			Lrexlib is a regular expression library for Lua 5.1-5.4, which
 			provides bindings for several regular expression libraries.
